@@ -1,7 +1,7 @@
 {
-  "dependencies": {
-    "chai": "^4.2.0"
-  },
+  "private": true,
+  "name": "fe-exam",
+  "description": "Alipay FE exams for interview",
   "scripts": {
     "test": "node index.js"
   }

@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+const assert = require('assert');
 
 const question = '实现一个简易版的微博，包含 client 和 server 两部分，并实现四个基础功能：关注、取关、发微博、获取用户微博列表';
 
@@ -9,7 +9,7 @@ const question = '实现一个简易版的微博，包含 client 和 server 两�
 
 class WeiboClient {
   /**
-   * @param { userId, server } options 
+   * @param { userId, server } options
    */
   constructor(options) {
   }
@@ -33,7 +33,7 @@ class WeiboClient {
 
 class WeiboServer {
   constructor() {
-    
+
   }
 
   // 获取对应用户微博列表
@@ -59,7 +59,7 @@ module.exports = function doTest() {
       userId: '003',
       server: wServer,
     });
-    
+
     const WEIBO_CONTENT_A = 'Hello World';
     const WEIBO_CONTENT_B = '大家好，我是user 002';
     const WEIBO_CONTENT_C = '小程序怎么写？';
@@ -67,19 +67,19 @@ module.exports = function doTest() {
     wClientB.postNewWeibo(WEIBO_CONTENT_B);
     wClientC.postNewWeibo(WEIBO_CONTENT_C);
 
-    assert.deepEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A]);
+    assert.deepStrictEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A]);
 
     wClientA.follow('002');
-    assert.deepEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_B]);
+    assert.deepStrictEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_B]);
 
     wClientA.follow('003');
-    assert.deepEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_B, WEIBO_CONTENT_C]);
+    assert.deepStrictEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_B, WEIBO_CONTENT_C]);
 
     wClientA.unfollow('002');
-    assert.deepEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_C]);
+    assert.deepStrictEqual(wServer.getWeiboList('001'), [WEIBO_CONTENT_A, WEIBO_CONTENT_C]);
 
-    return "通过";
+    return '通过';
   } catch (ex) {
-    return "不通过";
+    return '不通过';
   }
 }
