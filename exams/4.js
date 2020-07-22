@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+const assert = require('assert');
 
 const question = '实现一个信号灯控制器，红/黄/绿灯依次点亮 300/200/100 毫秒，不断交替，本题需要自己写测试';
 
@@ -6,15 +6,14 @@ const question = '实现一个信号灯控制器，红/黄/绿灯依次点亮 30
 
 let light = ''; // red, yellow, green
 async function execute() {
-  
 }
 
 /*******测试部分*******/
 module.exports = async function doTest() {
   try {
-    // 此处写测试用例
-    throw new Error('删除此行，补上你的测试用例');
+    throw new Error('删除此行，补充测试用例');
+    return '通过';
   } catch (ex) {
-    return "不通过";
+    return '不通过';
   }
 }
